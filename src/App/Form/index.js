@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { currencies } from "../currencies"
 import { Result } from "./Result";
-import "./style.css";
+import { LabelText, Field, Button, Header, Info } from "./styled";
+
 
 
 export const Form = ({ calculateResult, result }) => {
@@ -14,52 +15,49 @@ export const Form = ({ calculateResult, result }) => {
     }
 
     return (
-        <form className="form" onSubmit={onSubmit}>
-            <h1 className="form__header">
+        <form onSubmit={onSubmit}>
+            <Header>
                 Przelicznik walut
-            </h1>
+            </Header>
             <p>
-                <span className="form__labelText">
-                    Kwota w zł*:
-                </span>
-                <input
-                    value={amount}
-                    onChange={({ target }) => setAmount(target.value)}
-                    placeholder="Wpisz kwotę w zł"
-                    className="form__field"
-                    type="number"
-                    required
-                    step="0.01"
-                />
+                <label>
+                    <LabelText>Kwota w zł*:</LabelText>
+                    <Field
+                        value={amount}
+                        onChange={({ target }) => setAmount(target.value)}
+                        placeholder="Wpisz kwotę w zł"
+                        type="number"
+                        required
+                        step="0.01"
+                    />
+                </label>
             </p>
             <p>
                 <label>
-                    <span className="form__labelText">
-                        Waluta:
-                    </span>
-                    <select
-                        className="form__field"
+                    <LabelText>Waluta:</LabelText>
+                    <Field
+                        as="select"
                         value={currency}
                         onChange={({ target }) => setCurrency(target.value)}
                     >
                         {currencies.map((currency => (
-                            <option 
+                            <option
                                 key={currency.short}
                                 value={currency.short}
                             >
                                 {currency.name}
                             </option>
                         )))}
-                    </select>
+                    </Field>
                 </label>
             </p>
             <p>
-                <button className="form__button">Przelicz!</button>
+                <Button>Przelicz!</Button>
             </p>
 
-            <p className="form__info">
+            <Info>
                 Kursy pochodzą ze strony nbp.pl z Tabeli nr 084/A/NBP/2022 z dnia 2022-05-02
-            </p>
+            </Info>
 
             <Result result={result} />
         </form>
