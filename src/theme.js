@@ -6,5 +6,6 @@ export const theme = {
         boulder: "#777",
         white: "#fff",
         teal: "#008080",
+        crimson: "#db143c",
     },
 };
