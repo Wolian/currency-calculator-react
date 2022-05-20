@@ -19,6 +19,9 @@ export const Form = () => {
         });
     }
 
+    const [currency, setCurrency] = useState("EUR");
+    const [amount, setAmount] = useState("");
+
     const onSubmit = (event) => {
         event.preventDefault();
         calculateResult(currency, amount);
@@ -31,7 +34,7 @@ export const Form = () => {
             </Header>
             {ratesData.state === "loading"
                 ? (<Loading>
-                    Sekundka...<br />Ładuję kursy walut z Europejskiego Banku Centralnego
+                    Sekundka...<br />Ładuję kursy walut z Europejskiego Banku Centralnego...
                 </Loading>
                 )
                 : (
@@ -75,7 +78,7 @@ export const Form = () => {
                             </p>
 
                             <Info>
-                                Kursy pochodzą ze strony nbp.pl z Tabeli nr 084/A/NBP/2022 z dnia 2022-05-02
+                                Kursy walut pobierane są z Europejskiego Banku Centralnego. <br />Aktualne na dzień:{new Date}
                             </Info>
 
                             <Result result={result} />

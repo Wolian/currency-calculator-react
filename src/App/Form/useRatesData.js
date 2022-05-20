@@ -7,7 +7,7 @@ export const useRatesData = () => {
 
     useEffect(() => {
         const fetchRates = async () => {
-            try{
+            try {
                 const response = await fetch("https://api.exchangerate.host/latest?base=PLN");
 
                 if (!response.ok) {
