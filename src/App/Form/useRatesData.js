@@ -6,8 +6,9 @@ export const useRatesData = () => {
         state:"loading",
     });
 
-    const [currencyDate, setCurrencyDate] = useState("");
     const [ratesData, setRatesData] = useState([]);
+    const [currencyDate, setCurrencyDate] = useState("");
+    
     
 
     useEffect(() => {
@@ -20,7 +21,7 @@ export const useRatesData = () => {
                     state: "success",
                 });
 
-            }   catch {
+            }   catch (error) {
                 setFetchState({
                     state: "error",
                 });
