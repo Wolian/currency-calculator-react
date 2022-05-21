@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Result } from "./Result";
-import { LabelText, Field, Button, Header, Info, Loading, Failure } from "./styled";
+import { LabelText, Field, Button, Header, Info, Loading, Failure, Date } from "./styled";
 import { useRatesData } from "./useRatesData";
 
 
@@ -82,7 +82,7 @@ export const Form = () => {
                             </p>
 
                             <Info>
-                                Kursy walut pobierane są z Europejskiego Banku Centralnego. <br />Aktualne na dzień:<>{currencyDate}</>
+                                Kursy walut pobierane są z Europejskiego Banku Centralnego. <br />Aktualne na dzień:<Date>{currencyDate}</Date>
                             </Info>
 
                             <Result result={result} />
