@@ -7,7 +7,11 @@ import { useRatesData } from "./useRatesData";
 
 export const Form = () => {
     const [result, setResult] = useState();
-    const ratesData = useRatesData();
+    const {
+        ratesData, 
+        currencyDate, 
+        fetchState,
+    } = useRatesData();
 
     const calculateResult = (currency, amount) => {
         const rate = ratesData.rates[currency];
@@ -32,13 +36,13 @@ export const Form = () => {
             <Header>
                 Przelicznik walut
             </Header>
-            {ratesData.state === "loading"
+            {fetchState.state === "loading"
                 ? (<Loading>
                     Sekundka...<br />Ładuję kursy walut z Europejskiego Banku Centralnego...
                 </Loading>
                 )
                 : (
-                    ratesData.state === "error" ? (
+                    fetchState.state === "error" ? (
                         <Failure>
                             Hmm... Coś poszło nie tak. Sprawdź, czy masz połączenie z internetem. <br />Jeśli masz to wygląda na to, że to nasza wina. Może spróbuj ponownie później?
                         </Failure>
@@ -78,7 +82,7 @@ export const Form = () => {
                             </p>
 
                             <Info>
-                                Kursy walut pobierane są z Europejskiego Banku Centralnego. <br />Aktualne na dzień:{new Date}
+                                Kursy walut pobierane są z Europejskiego Banku Centralnego. <br />Aktualne na dzień:<>{currencyDate}</>
                             </Info>
 
                             <Result result={result} />
