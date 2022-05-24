@@ -53,5 +53,6 @@ export const Failure = styled.p`
 `;
 
 export const Date = styled.span`
-    font-weight: 500;
+    font-weight: 700;
 `;
+
