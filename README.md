@@ -17,7 +17,7 @@ https://wolian.github.io/currency-calculator-react/
 - Promises (async/await)
 - API
 
-###This project was bootstrapped with Create React App.
+### This project was bootstrapped with Create React App.
 
 ## Available Scripts
 
