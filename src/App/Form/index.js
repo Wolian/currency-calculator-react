@@ -4,7 +4,6 @@ import { LabelText, Field, Button, Header, Info, Loading, Failure, Date } from "
 import { useRatesData } from "./useRatesData";
 
 
-
 export const Form = () => {
     const [result, setResult] = useState();
     const {
@@ -14,7 +13,7 @@ export const Form = () => {
     } = useRatesData();
 
     const calculateResult = (currency, amount) => {
-        const rate = ratesData.rates[currency];
+        const rate = ratesData[currency];
 
         setResult({
             sourceAmount: +amount,
@@ -69,7 +68,7 @@ export const Form = () => {
                                         value={currency}
                                         onChange={({ target }) => setCurrency(target.value)}
                                     >
-                                        {Object.keys(ratesData.rates).map(((currency) => (
+                                        {Object.keys(ratesData).map(((currency) => (
                                             <option key={currency} value={currency}>
                                                 {currency}
                                             </option>
